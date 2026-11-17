@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clumsy 캐릭터 아카이브</title>
+  <style>
+    body { font-family: sans-serif; max-width: 800px; margin: 20px auto; padding: 0 15px; }
+    .card { border: 1px solid #ccc; border-radius: 8px; padding: 15px; margin-bottom: 12px; }
+    .controls { background: #f4f4f4; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+    input { margin: 4px; padding: 6px; }
+    button { padding: 6px 12px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>캐릭터 스탯 시트</h1>
+
+  <!-- 수정 권한 토큰 및 새 캐릭터 추가 -->
+  <div class="controls">
+    <div>
+      <strong>GitHub 토큰(수정용):</strong> 
+      <input type="password" id="gh-token" placeholder="ghp_... 토큰 입력">
+      <small>(수정 후 저장할 때만 필요합니다)</small>
+    </div>
+    <hr>
+    <div>
+      <input type="text" id="new-name" placeholder="이름">
+      <input type="text" id="new-job" placeholder="직업/클래스">
+      <input type="number" id="new-hp" placeholder="체력(HP)">
+      <input type="number" id="new-str" placeholder="근력(STR)">
+      <button onclick="addCharacter()">캐릭터 추가</button>
+    </div>
+  </div>
+
+  <!-- 캐릭터 목록이 표시될 영역 -->
+  <div id="character-list">불러오는 중...</div>
+
+  <button onclick="saveToGitHub()" style="background:#2ea44f; color:white; border:none; padding:10px 20px; font-size:16px;">
+    변경사항 GitHub에 저장 (로그 남기기)
+  </button>
+
+  <!-- 같은 폴더에 있는 app.js 연결 -->
+  <script src="app.js"></script>
+</body>
+</html>
